@@ -11,8 +11,6 @@
 	String membership =	menuPageRequest.endsWith("membership.jsp") ? "on" : "";
 	String mypage =	menuPageRequest.endsWith("mypage.jsp") ? "on" : "";
 	
-	String nickname = (String)session.getAttribute("nickname");
-	String email1 = (String)session.getAttribute("email");
 	
 %>
 
@@ -24,11 +22,11 @@
 		<div class="userCnt">
 			<div class="user" onclick="dropMenuShow();">
 				<div class="image"><img src="${pageContext.request.contextPath}/img/profile/user.png" onerror=this.src="${pageContext.request.contextPath}/img/user.png" alt="닉네임"></div>
-				<div class="name"><p><%=nickname %></p></div>
+				<div class="name"><p>${UserVO.nickname }</p></div>
 			</div>
 			<div class="dropMenu">
-				<button type="button" class="btn-under-02">로그아웃</button>
-			</div>
+			<button type="button" class="btn-under-02" onclick="popLogoutShow();">로그아웃</button>
+		</div>
 		</div>
 		<div class="menuCnt">
 			<ul>
@@ -39,7 +37,7 @@
 					<a href="${pageContext.request.contextPath}/playlist" class="<%=playlist %>"><i class="fa-solid fa-icons"></i>플레이리스트</a>
 				</li>
 				<li class="item">
-					<a href="${pageContext.request.contextPath}/community/community?email=<%=email1 %>" class="<%=community %> <%="artist".equals(request.getAttribute("artistPage")) ? "on" : "" %>"><i class="fa-solid fa-comment"></i>커뮤니티</a>
+					<a href="${pageContext.request.contextPath}/community/community?email=${UserVO.email}" class="<%=community %> <%="artist".equals(request.getAttribute("artistPage")) ? "on" : "" %>"><i class="fa-solid fa-comment"></i>커뮤니티</a>
 				</li>
 				<li class="item">
 					<a href="${pageContext.request.contextPath}/membership" class="<%=membership %>"><i class="fa-solid fa-credit-card"></i>멤버십</a>

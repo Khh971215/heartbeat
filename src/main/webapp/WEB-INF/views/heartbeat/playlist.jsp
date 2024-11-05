@@ -2,6 +2,133 @@
 <%@ include file="../include/layout.jsp" %>
 
 <body>
+	<div class="inner service playlist" data-name="playlist">
+		<%@ include file="../include/menu.jsp" %>
+		<div id="menu" class="menu" data-html="../layout/menu.html"></div>
+		<div id="playBar" class="playBar">플레이바</div>
+		<div class="container">
+			<div class="cntWrap">
+				<h2 id="title" class="title"></h2>
+				<div class="cntArea">
+					<div class="section-tag">
+						<p class="noti">해시태그를 3개 선택해주세요! <br>해시태그를 선택하면 당신에게 맞는 노래를 선곡해드립니다♬</p>
+						<ul class="tagList">
+							<li class="tag">#신나는</li>
+							<li class="tag">#비오는날</li>
+							<li class="tag">#차분한</li>
+							<li class="tag">#조용한</li>
+							<li class="tag">#파티</li>
+							<li class="tag">#운동</li>
+							<li class="tag">#명상</li>
+							<li class="tag">#휴식</li>
+							<li class="tag">#졸릴때</li>
+							<li class="tag">#노동요</li>
+						</ul>
+						<div class="btnCnt">
+							<button type="button" id="listShow" class="btn-full" onclick="playlistShow();">플레이리스트 보기</button>
+						</div>
+					</div>
+					<div class="section-list" style="display:none;">
+						<div>
+							<div id="listTitle" class="listName"></div>
+							<div class="listBx">
+								<div class="btnWrap">
+									<button type="button" class="btn-under">전체듣기</button>
+								</div>
+								<ul class="itemWrap">
+									<li class="item all">
+										<input type="checkbox" id="allBtn" class="check" name="music">
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+									<li class="item">
+										<input type="checkbox" class="check" name="music">
+										<div class="album"><i></i></div>
+										<div class="arti">
+											<i class="tit">노래제목</i>
+											<i class="name">가수</i>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="dimmed" onclick="popAlertCheckHide()"></div>
 	<script>
 		$(function(){
 			colorRandom();
@@ -115,133 +242,5 @@
 			});
 		}
 	</script>
-	
-	<div class="inner service playlist" data-name="playlist">
-		<%@ include file="../include/menu.jsp" %>
-		<div id="playBar" class="playBar">플레이바</div>
-		
-		<div class="container">
-			<div class="cntWrap">
-				<h2 id="title" class="title"><%=pageTitle %></h2>
-				<div class="cntArea">
-					<div class="section-tag">
-						<p class="noti">해시태그를 3개 선택해주세요! <br>해시태그를 선택하면 당신에게 맞는 노래를 선곡해드립니다♬</p>
-						<ul class="tagList">
-							<li class="tag">#신나는</li>
-							<li class="tag">#비오는날</li>
-							<li class="tag">#차분한</li>
-							<li class="tag">#조용한</li>
-							<li class="tag">#파티</li>
-							<li class="tag">#운동</li>
-							<li class="tag">#명상</li>
-							<li class="tag">#휴식</li>
-							<li class="tag">#졸릴때</li>
-							<li class="tag">#노동요</li>
-						</ul>
-						<div class="btnCnt">
-							<button type="button" id="listShow" class="btn-full" onclick="playlistShow();">플레이리스트 보기</button>
-							<button type="button" id="tagReset" class="btn-border">태그 리셋</button>
-						</div>
-					</div>
-					<div class="section-list" style="display:none;">
-						<div>
-							<div id="listTitle" class="listName"></div>
-							<div class="listBx">
-								<div class="btnWrap">
-									<button type="button" class="btn-under">전체듣기</button>
-									<button type="button" class="btn-under" onclick="alert('플레이리스트가 저장되었습니다.')">플레이리스트 저장</button>
-								</div>
-								<ul class="itemWrap">
-									<li class="item all">
-										<input type="checkbox" id="allBtn" class="check" name="music">
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-									<li class="item">
-										<input type="checkbox" class="check" name="music">
-										<div class="album"><i></i></div>
-										<div class="arti">
-											<i class="tit">노래제목</i>
-											<i class="name">가수</i>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

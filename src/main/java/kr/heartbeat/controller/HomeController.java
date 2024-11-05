@@ -39,6 +39,7 @@ public class HomeController {
 		System.out.println(dbuservo);
 		
 		if (dbuservo != null) {
+			session.setAttribute("UserVO", dbuservo);
 			session.setAttribute("nickname", dbuservo.getNickname());
 			session.setAttribute("email", dbuservo.getEmail());
 			session.setAttribute("artist_id", dbuservo.getArtist_id());

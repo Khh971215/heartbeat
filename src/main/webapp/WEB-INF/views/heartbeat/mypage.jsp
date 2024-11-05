@@ -2,44 +2,18 @@
 <%@ include file="../include/layout.jsp" %>
 
 <body>
-	<script>
-		$(function(){
-			mypageTab();
-			tabListShow();
-		});
-
-		function mypageTab(){
-			$('.tabBtn .tab').on('click', function () {
-
-				var tabName = $(this).attr('data-tab');
-
-				$('.tabBtn .tab').removeClass('on');
-				$('.tabCnt .cntBx').removeClass('on');
-				$(this).addClass('on');
-				$('.' + tabName).addClass('on');
-			});
-		}
-
-		function tabListShow(){
-			$('.tab-playlist .item .tit').on('click', function(){
-				$(this).siblings('.list').children('.listWrap').toggle();
-			})
-		}
-	</script>
-	
-	<div class="inner service mypage" data-name="mypage">
+<div class="inner service mypage" data-name="mypage">
 		<%@ include file="../include/menu.jsp" %>
-		
 		<div class="container">
 			<div class="cntWrap">
-				<h2 id="title" class="title"><%=pageTitle %></h2>
+				<h2 id="title" class="title"></h2>
 				<div class="cntArea">
 					<div class="tabBtn">
 						<ul>
 							<li data-tab="tab-myinfo" class="tab on">내 정보 변경</li>
 							<li data-tab="tab-membership" class="tab">멤버십 변경</li>
 							<li data-tab="tab-post" class="tab">작성글 확인</li>
-							<li data-tab="tab-playlist" class="tab">플레이리스트 확인</li>
+							<li data-tab="tab-playlist" class="tab" style="display:none;">플레이리스트 확인</li>
 						</ul>
 					</div>
 					<div class="tabCnt">
@@ -223,5 +197,31 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="dimmed" onclick="popAlertCheckHide()"></div>
+	<script>
+		$(function(){
+			mypageTab();
+			tabListShow();
+		});
+
+		function mypageTab(){
+			$('.tabBtn .tab').on('click', function () {
+
+				var tabName = $(this).attr('data-tab');
+
+				$('.tabBtn .tab').removeClass('on');
+				$('.tabCnt .cntBx').removeClass('on');
+				$(this).addClass('on');
+				$('.' + tabName).addClass('on');
+			});
+		}
+
+		function tabListShow(){
+			$('.tab-playlist .item .tit').on('click', function(){
+				$(this).siblings('.list').children('.listWrap').toggle();
+			})
+		}
+	</script>
 </body>
 </html>

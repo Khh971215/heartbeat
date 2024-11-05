@@ -3,70 +3,12 @@
 
 
 <body>
-	<script>
-		$(function(){
-			colorRandom();
-		});
-
-		//팝업 스테이션
-		function popStationListShow(e){
-			$('.pop-station-list').show();
-			$('.dimmed').show();
-
-			var stationTitle = $(e).children('.tit').text();
-			$('#stationTitle').html(stationTitle);
-		}
-		function popStationListHide(){
-			$('.pop-station-list').hide();
-			$('.dimmed').hide();
-		}
-		
-		//스테이션 배경컬러 랜덤
-		function colorRandom(){
-			function getRandomColor() {
-				const letters = '0123456789ABCDEF';
-				let color = '#';
-				for (let i = 0; i < 6; i++) {
-					color += letters[Math.floor(Math.random() * 16)];
-				}
-				return color;
-			}
-
-			function getLuminance(hex) {
-				const r = parseInt(hex.slice(1, 3), 16) / 255;
-				const g = parseInt(hex.slice(3, 5), 16) / 255;
-				const b = parseInt(hex.slice(5, 7), 16) / 255;
-
-				const a = [r, g, b].map(function (v) {
-					return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-				});
-
-				const luminance = a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
-
-				return luminance;
-			}
-
-			function setRandomColors() {
-				$('.stationBx .item').each(function() {
-					const color = getRandomColor();
-					$(this).css('background-color', color);
-
-					const luminance = getLuminance(color);
-					const textColor = luminance > 0.5 ? '#000000' : '#FFFFFF';
-					$(this).css('color', textColor);
-				});
-			}
-
-			setRandomColors();
-		}
-	</script>
-	
 	<div class="inner service chart" data-name="chart">
-		<%@ include file="../include/menu.jsp" %>
+	<%@ include file="../include/menu.jsp" %>
 		<div id="playBar" class="playBar">플레이바</div>
 		<div class="container">
 			<div class="cntWrap">
-				<h2 id="title" class="title"><%=pageTitle %></h2>
+				<h2 id="title" class="title"></h2>
 				<div class="cntArea">
 					<div class="section-chart">
 						<div class="listBx daily">
@@ -363,10 +305,70 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="dimmed" onclick="popStationListHide();"></div>
 
+	<div class="dimmed" onclick="popStationListHide();"></div>
+	
+	<!-- [D] 팝업 로그아웃-->
+	<div class="popup pop-alert-logout" data-html="../popup/pop-alert-logout.html"></div>
 	<!-- [D] 팝업 스테이션 추천 리스트 -->
-	<div class="popup pop-station-list"><%@ include file="../popup/pop-station-list.jsp" %></div>
+	<div class="popup pop-station-list" data-html="../popup/pop-station-list.html"></div>
+
+	<script>
+		$(function(){
+			colorRandom();
+		});
+
+		//팝업 스테이션
+		function popStationListShow(e){
+			$('.pop-station-list').show();
+			$('.dimmed').show();
+
+			var stationTitle = $(e).children('.tit').text();
+			$('#stationTitle').html(stationTitle);
+		}
+		function popStationListHide(){
+			$('.pop-station-list').hide();
+			$('.dimmed').hide();
+		}
+		
+		//스테이션 배경컬러 랜덤
+		function colorRandom(){
+			function getRandomColor() {
+				const letters = '0123456789ABCDEF';
+				let color = '#';
+				for (let i = 0; i < 6; i++) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			}
+
+			function getLuminance(hex) {
+				const r = parseInt(hex.slice(1, 3), 16) / 255;
+				const g = parseInt(hex.slice(3, 5), 16) / 255;
+				const b = parseInt(hex.slice(5, 7), 16) / 255;
+
+				const a = [r, g, b].map(function (v) {
+					return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+				});
+
+				const luminance = a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+
+				return luminance;
+			}
+
+			function setRandomColors() {
+				$('.stationBx .item').each(function() {
+					const color = getRandomColor();
+					$(this).css('background-color', color);
+
+					const luminance = getLuminance(color);
+					const textColor = luminance > 0.5 ? '#000000' : '#FFFFFF';
+					$(this).css('color', textColor);
+				});
+			}
+
+			setRandomColors();
+		}
+	</script>
 </body>
 </html>

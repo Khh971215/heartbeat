@@ -112,6 +112,9 @@ br.mob{display:none}
 .join .joinCnt .inputBx .imgBx:after{display:block;clear:both;content:""}
 .join .joinCnt .inputBx .imgBx button{float:left;width:auto;height:40px;margin-left:0;padding:0}
 .join .joinCnt .inputBx .imgBx .fileName{overflow:hidden;float:left;width:calc(100% - 112px);height:40px;margin-left:10px;line-height:40px;white-space:nowrap;text-overflow:ellipsis}
+.join .joinCnt .inputBx .birthBx{display:flex;justify-content:flex-start;align-items:center;margin-bottom:10px}
+.join .joinCnt .inputBx .birthBx>label{margin-right:10px}
+.join .joinCnt .inputBx .birthBx .txtBx{margin-bottom:0}
 .join .joinCnt .btn-full{width:100%;margin-top:30px;font-size:18px;font-weight:700}
 
 /*플레이바*/
@@ -285,6 +288,7 @@ br.mob{display:none}
 .popup{display:none;position:fixed;top:50%;left:50%;width:500px;max-height:500px;background:#fff;border-radius:20px;transform:translate(-50%, -50%);z-index:2500}
 .popup>.wrap{padding:20px}
 .popup .topArea{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-size:18px;font-weight:700}
+.popup .btnWrap{display:flex;justify-content:center;align-items:center;margin-top:20px}
 
 /*팝업 공통 얼럿메세지*/
 [class*="pop-alert-"]{width:300px}
@@ -332,6 +336,11 @@ br.mob{display:none}
 [class*="pop-post-"] .topArea{justify-content:flex-end;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ebebeb}
 [class*="pop-post-"] .cntArea{display:flex;justify-content:space-between}
 [class*="pop-post-"] .postBx{width:calc(65% - 20px);margin-right:20px;padding:0}
+[class*="pop-post-"] .postBx .btn-i-edit,
+[class*="pop-post-"] .postBx .btn-i-trash{margin-left:10px}
+[class*="pop-post-"] .postBx .btn-i-save:hover,
+[class*="pop-post-"] .postBx .btn-i-edit:hover,
+[class*="pop-post-"] .postBx .btn-i-trash:hover{color:#000}
 [class*="pop-post-"] .postBx .arti-profile{position:static;margin-right:10px;transform:translateY(0)}
 [class*="pop-post-"] .postBx .arti-cnt{overflow:auto;max-height:400px;padding:0 10px}
 [class*="pop-post-"] .postBx .arti-date,

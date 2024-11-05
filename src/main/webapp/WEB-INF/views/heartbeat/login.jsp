@@ -14,21 +14,20 @@
 					<form name="loginFrm" action="/loginPro" method="post">
 						<div id="id" class="item">
 							<p>이메일</p>
-							<input type="text" name="email" class="txtBx" placeholder="E-mail 입력" required autofocus>
+							<input type="text" name="email" class="txtBx" placeholder="E-mail 입력">
 							<p class="error">이메일을 확인해주세요.</p>
 						</div>
 						<div id="password" class="item">
 							<p>비밀번호</p>
-							<input type="password" name="pwd" class="txtBx" placeholder="비밀번호 입력" required>
+							<input type="password" name="pwd" class="txtBx" placeholder="비밀번호 입력">
 							<p class="error">비밀번호를 확인해주세요.</p>
 						</div>
 						<button type="submit" onclick="loginCheck()" id="btnLogin" class="btn-full en">Login</button>
-						
 					</form>
 					<div class="btnBx">
 						<button type="button" id="findId" class="btn-under-01" onclick="popFindIdShow();">이메일 찾기</button>
 						<button type="button" id="findPwd" class="btn-under-01" onclick="popFindPasswordShow();">비밀번호 찾기</button>
-						<a href="join.jsp" id="btnJoin" class="btn-under-01">회원가입</a>
+						<a href="./join.html" id="btnJoin" class="btn-under-01">회원가입</a>
 					</div>
 				</div>
 				<p class="line"><i>혹은</i></p>
@@ -42,9 +41,9 @@
 		<div class="dimmed" onclick="popFindIdHide();popFindPasswordHide();"></div>
 
 		<!-- [D] 팝업 아이디찾기 -->
-		<%@ include file="../popup/pop-find-id.jsp" %>
+		<div class="popup pop-find-id" data-html="./popup/pop-find-id.html"></div>
 		<!-- [D] 팝업 비밀번호찾기 -->
-		<%@ include file="../popup/pop-find-password.jsp" %>
+		<div class="popup pop-find-password" data-html="./popup/pop-find-password.html"></div>
 	</div>
 
 	<script>

@@ -4,10 +4,9 @@
 <body>
 	<div class="inner service membership" data-name="membership">
 		<%@ include file="../include/menu.jsp" %>
-		
 		<div class="container">
 			<div class="cntWrap">
-				<h2 id="title" class="title"><%=pageTitle %></h2>
+				<h2 id="title" class="title"></h2>
 				<div class="cntArea">
 					<div class="section-membership">
 						<div class="tit">지금 멤버십을 구독하세요! <br>Hot한 음악도 마음껏 듣고 내가 좋아하는 아티스트와 소통하고 팬들도 사귈 수 있는 기회!</div>
@@ -36,5 +35,11 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="dimmed" onclick="popAlertCheckHide()"></div>
+	
+	<!-- [D] 팝업 로그아웃-->
+	<div class="popup pop-alert-logout" data-html="../popup/pop-alert-logout.html"></div>
+	<script></script>
 </body>
 </html>

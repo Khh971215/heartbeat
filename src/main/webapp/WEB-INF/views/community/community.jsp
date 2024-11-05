@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/layout.jsp" %>
-<% 
-	String email = (String)session.getAttribute("email");
-	Integer levelObj = (Integer)session.getAttribute("level");
-	int level = levelObj;
-%>
+
 <body>
 	<script>
 		$(function(){
@@ -13,7 +9,7 @@
 		
 		//팝업 얼럿 멤버십구매
 		function popAlertPurchaseShow(){
-			if(<%=level%> != 2) {
+			if(${UserVO.level} != 2) {
 				$('.pop-alert-purchase').show();
 				$('.dimmed').show();								
 			}
@@ -48,7 +44,7 @@
 							<button type="button" class="btn-under-01" onclick="popAddArtistShow();">아티스트 추가 요청</button>
 							<ul>
 								<li class="item">
-									<a href="${pageContext.request.contextPath}/community/artist/newjeans?email=<%=email%>">
+									<a href="${pageContext.request.contextPath}/community/artist/newjeans?email=${UserVO.email}">
 										<div class="artist"><img src="${pageContext.request.contextPath}/img/artist/newjeans.jpg" alt="newjeans"></div>
 										<div class="artistLogo"><img src="${pageContext.request.contextPath}/img/artist/newjeans-logo.png" alt="newjeans"></div>
 										<div class="artistName"><i>뉴진스</i></div>

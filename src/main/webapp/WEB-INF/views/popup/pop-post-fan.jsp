@@ -19,6 +19,14 @@
 					<span class="arti-mark"><span class="blind">artist</span></span>
 					<span class="arti-name"> ${PostVO.nickname }</span>
 					<span class="arti-date"><fmt:formatDate value="${PostVO.post_date}" pattern="yy-MM-dd HH:mm"/></span>
+					<c:if test="${PostVO.nickname eq nickname}">
+						<form action="" method="post">
+							<input type="hidden" name="post_id" value="${PostVO.post_id }">
+							<button type="button" class="btn-i-trash"></button>
+						</form>
+						<button type="button" class="btn-i-edit" onclick="popCommentEditShow(this)"></button>
+						<button type="button" class="btn-i-save" onclick="popCommentSaveShow(this)" style="display:none;"></button>
+					</c:if>
 				</div>
 				<div class="arti-cnt">
 					<div class="txt">${PostVO.content}</div>
@@ -39,13 +47,22 @@
 							<div class="fan-profile">
 								<img src="#none" onerror=this.src="${pageContext.request.contextPath}/img/user.png" class="fan-thumb" alt="닉네임1">
 								<span class="nickname">${commentVO.nickname }</span>
+								
 								<div class="date"><fmt:formatDate value="${commentVO.comment_date}" pattern="yy-MM-dd HH:mm"/></div>
+								
+								
 								<c:if test="${commentVO.nickname eq nickname}">
 								<form action="/community/commentdelete" method="post">
 								<input type="hidden" name="comment_id" value="${commentVO.comment_id }">
-								<button type="submit">삭제</button>
+								<button type="submit" class="btn-i-trash"></button>
 								</form>
+								<button type="button" class="btn-i-edit" onclick="popCommentEditShow(this)"></button>
+								<button type="button" class="btn-i-save" onclick="popCommentSaveShow(this)" style="display:none;"></button>
+								
 								</c:if>
+								
+								
+								
 							</div>
 							<div class="fan-comment">
 								<div><div>${commentVO.comment }</div></div>
@@ -56,8 +73,8 @@
 				</c:forEach>				
 				<form action="/community/commentWrite" method="post">
 					<input type="hidden" name="post_id" value="${PostVO.post_id}"/>
-					<input type="hidden" name="email" value="<%=email %>"/>
-					<input type="hidden" name="nickname" value="<%=nickname2 %>"/>
+					<input type="hidden" name="email" value="${PostVO.email }"/>
+					<input type="hidden" name="nickname" value="${PostVO.nickname}"/>
 					<div class="input">
 						<input type="text" class="txtBx" name="comment" placeholder="댓글을 입력하세요." autocomplete="off">
 						<button type="submit" class="btn-i-send"><i class="fa-regular fa-paper-plane"></i></button>
