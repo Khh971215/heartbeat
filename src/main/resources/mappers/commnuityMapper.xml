@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="kr.heartbeat.mappers.community">
+  	<select id="checkMemberShipLevel" resultType="kr.heartbeat.vo.UserVO" parameterType="kr.heartbeat.vo.UserVO">
+  		select * from user_tbl where email = #{email}
+  	</select>
+  
+  	<insert id="postWrite" parameterType="kr.heartbeat.vo.PostVO">
+  		insert into post_tbl (email, artist_id, nickname, content, post_img, post_date)
+  		value (#{email}, #{artist_id}, #{nickname}, #{content}, #{post_img}, now())
+  	</insert>
+  	
+  	<select id="getPostList" resultType="kr.heartbeat.vo.PostVO" parameterType="kr.heartbeat.vo.PostVO">
+  		select * from post_tbl  ORDER BY post_id DESC;
+  	</select>
+  	
+  	<select id="getPost" resultType="kr.heartbeat.vo.PostVO" parameterType="kr.heartbeat.vo.PostVO">
+  		select * from post_tbl where post_id = #{post_id} ;
+  	</select>	
+  		
+  	<select id="getLevel" resultType="kr.heartbeat.vo.UserVO" parameterType="kr.heartbeat.vo.PostVO">
+  		select * from user_tbl where email = #{email}
+  	</select>
+  	
+  	<insert id="commentWrite" parameterType="kr.heartbeat.vo.CommentVO">
+  		insert into comment_tbl (email, post_id, nickname, comment, comment_date)
+  		value (#{email}, #{post_id}, #{nickname}, #{comment}, now())
+  	</insert>
+  	
+  	<select id="getComment" parameterType="kr.heartbeat.vo.PostVO" resultType="kr.heartbeat.vo.CommentVO">
+  		select * from comment_tbl where post_id = #{post_id} order by post_id desc;
+  	</select>
+  	
+  	<select id="totalComment" parameterType="kr.heartbeat.vo.PostVO" resultType="int">
+  		select count(*) from comment_tbl where post_id = #{post_id}
+  	</select>
+  	
+  	<delete id="commentdelete" parameterType="kr.heartbeat.vo.CommentVO">
+  		delete from comment_tbl where comment_id = #{comment_id}
+  	</delete>
+  	
+  </mapper>
