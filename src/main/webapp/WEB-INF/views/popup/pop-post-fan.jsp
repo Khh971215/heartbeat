@@ -334,6 +334,24 @@
 	    // 페이지 새로 고침
 	    location.reload(); // 페이지 새로 고침
 	}
+	
+	// 새로고침 버튼 
+	function resetPopup(post_id) {
+	    // AJAX 요청을 통해 서버에서 데이터를 불러온 후 팝업 업데이트
+	    $.ajax({
+	        url: '/community/getUserPost',  // 서버 URL을 여기에 넣으세요
+	        method: 'POST',  // 서버에서 데이터를 가져오는 방식 (GET, POST 등)
+	    	data : {post_id : post_id},
+	        success: function(response) {
+	            // 서버에서 받은 응답으로 팝업 내용 업데이트
+	            $('.pop-post-fan').html(response); // 응답 받은 내용을 팝업에 표시
+	            $('.pop-post-fan').show(); // 팝업 다시 보이게 하기
+	        },
+	        error: function(error) {
+	            console.error('에러 발생:', error);
+	        }
+	    });
+	}
 	 
 
 </script>
@@ -369,7 +387,7 @@
 			<div class="top">
 				<div class="count">
 					<div class="comm" ><i class="num">${totalComment }</i>개의 댓글</div>
-					<button type="button" class="btn-i-reset"><i class="fa-solid fa-rotate-right"></i></button>
+					<button type="button" class="btn-i-reset" onclick="resetPopup('${PostVO.post_id}')"><i class="fa-solid fa-rotate-right"></i></button>
 				</div>
 			</div>
 			<div class="reply">

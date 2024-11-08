@@ -119,7 +119,7 @@ public class CommunityController {
 	}
 
 	// 유저 게시물 상세보기
-	@PostMapping("/getUserPost")
+	@RequestMapping("/getUserPost")
 	public String getUserPost(@RequestParam("post_id") int post_id, Model model) throws Exception {
 		PostVO dbpost = communityService.getPost(post_id); // 게시물 정보
 		List<CommentVO> commentList = communityService.getComment(post_id); // 댓글 목록
