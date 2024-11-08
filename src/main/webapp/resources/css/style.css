@@ -345,6 +345,7 @@ br.mob{display:none}
 [class*="pop-post-"] .postBx .arti-cnt{overflow:auto;max-height:400px;padding:0 10px}
 [class*="pop-post-"] .postBx .arti-date,
 [class*="pop-post-"] .replyBx .date{margin-left:auto;color:#737373;font-size:12px}
+[class*="pop-post-"] .postBx .fan-comment .txtBx{width:100%}
 [class*="pop-post-"] .replyBx{width:35%}
 [class*="pop-post-"] .replyBx .top .count{display:flex;justify-content:space-between;align-items:center;color:#333}
 [class*="pop-post-"] .replyBx .top .count .num{color:#000;font-weight:700}

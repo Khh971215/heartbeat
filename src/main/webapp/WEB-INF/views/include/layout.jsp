@@ -7,37 +7,37 @@
     String pageTitle = (String) request.getAttribute("pageTitle");
 	String pageRequest = request.getRequestURI();
 
-	if (pageRequest.endsWith("index")) pageName = "HeartBeat";
-	else if (pageRequest.endsWith("Web/login")) pageName = "로그인 - HeartBeat";
-	else if (pageRequest.endsWith("join")) pageName = "회원가입 - HeartBeat";
+	if (pageRequest.endsWith("index.jsp")) pageName = "HeartBeat";
+	else if (pageRequest.endsWith("Web/login.jsp")) pageName = "로그인 - HeartBeat";
+	else if (pageRequest.endsWith("join.jsp")) pageName = "회원가입 - HeartBeat";
 	
-	else if (pageRequest.endsWith("chart")){
+	else if (pageRequest.endsWith("chart.jsp")){
 		pageName = "차트 - HeartBeat";
 		pageTitle = "차트";
 	}
-	else if (pageRequest.endsWith("playlist")) {
+	else if (pageRequest.endsWith("playlist.jsp")) {
 		pageName = "플레이리스트 - HeartBeat";
 		pageTitle = "플레이리스트";
 	}
-	else if (pageRequest.endsWith("community")) {
+	else if (pageRequest.endsWith("community.jsp")) {
 		pageName = "커뮤니티 - HeartBeat";
 		pageTitle = "커뮤니티";
 	}
-	else if (pageRequest.endsWith("membership")) {
+	else if (pageRequest.endsWith("membership.jsp")) {
 		pageName = "멤버십 - HeartBeat";
 		pageTitle = "멤버십";
 	}
-	else if (pageRequest.endsWith("mypage")) {
+	else if (pageRequest.endsWith("mypage.jsp")) {
 		pageName = "마이페이지 - HeartBeat";
 		pageTitle = "마이페이지";
 	}
 	
-	else if (pageRequest.endsWith("artist/newjeans")) {
+	else if (pageRequest.endsWith("artist/newjeans.jsp")) {
 		pageName = "뉴진스";
 		pageTitle = "뉴진스";
 	}
 	
-	else if (pageRequest.endsWith("admin/login")) {
+	else if (pageRequest.endsWith("admin/login.jsp")) {
 		pageName = "관리자 로그인";
 		pageTitle = "관리자 로그인";
 	}
@@ -66,4 +66,5 @@
 	<script src="https://kit.fontawesome.com/dda279453f.js"></script>
 	<script src="${pageContext.request.contextPath}/js/vendor/jquery-1.12.4.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/common.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>

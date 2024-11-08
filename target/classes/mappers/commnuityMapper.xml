@@ -20,6 +20,16 @@
   	<select id="getPost" resultType="kr.heartbeat.vo.PostVO" parameterType="kr.heartbeat.vo.PostVO">
   		select * from post_tbl where post_id = #{post_id} ;
   	</select>	
+  	
+  	<update id="modifyPost" parameterType="kr.heartbeat.vo.PostVO">
+  		update post_tbl set content = #{content} where post_id = #{post_id}
+  	</update>
+ 
+  	
+  	<select id="deletePost">
+  		delete from post_tbl where post_id = #{post_id}
+  	</select>
+  	
   		
   	<select id="getLevel" resultType="kr.heartbeat.vo.UserVO" parameterType="kr.heartbeat.vo.PostVO">
   		select * from user_tbl where email = #{email}
@@ -31,15 +41,29 @@
   	</insert>
   	
   	<select id="getComment" parameterType="kr.heartbeat.vo.PostVO" resultType="kr.heartbeat.vo.CommentVO">
-  		select * from comment_tbl where post_id = #{post_id} order by post_id desc;
+  		select * from comment_tbl where post_id = #{post_id} order by comment_id desc;
   	</select>
   	
   	<select id="totalComment" parameterType="kr.heartbeat.vo.PostVO" resultType="int">
   		select count(*) from comment_tbl where post_id = #{post_id}
   	</select>
   	
+  	<update id="modifyComment" parameterType="kr.heartbeat.vo.CommentVO">
+  		UPDATE comment_tbl
+		SET comment = #{comment}
+		WHERE comment_id = #{comment_id}
+  	</update>
+  	
+  	<select id="getmodifyComment" parameterType="kr.heartbeat.vo.CommentVO" resultType="kr.heartbeat.vo.CommentVO">
+  		select * from comment_tbl where comment_id = #{comment_id}
+  	</select>
+  	
   	<delete id="commentdelete" parameterType="kr.heartbeat.vo.CommentVO">
   		delete from comment_tbl where comment_id = #{comment_id}
   	</delete>
+  	
+  	<select id="getNewComment" parameterType="kr.heartbeat.vo.CommentVO" resultType="kr.heartbeat.vo.CommentVO">
+  		SELECT * from comment_tbl WHERE post_id = #{post_id} order by comment_id desc limit 1;
+  	</select>
   	
   </mapper>

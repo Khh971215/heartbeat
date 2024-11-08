@@ -40,9 +40,6 @@ public class HomeController {
 		
 		if (dbuservo != null) {
 			session.setAttribute("UserVO", dbuservo);
-			session.setAttribute("nickname", dbuservo.getNickname());
-			session.setAttribute("email", dbuservo.getEmail());
-			session.setAttribute("artist_id", dbuservo.getArtist_id());
 			session.setAttribute("level", dbuservo.getLevel());
 			url = "/heartbeat/chart";
 		} else {

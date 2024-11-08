@@ -9,11 +9,10 @@
 		
 		//팝업 얼럿 멤버십구매
 		function popAlertPurchaseShow(){
-			if(${UserVO.level} != 2) {
+			if (${UserVO.level} != 2) {
 				$('.pop-alert-purchase').show();
-				$('.dimmed').show();								
+				$('.dimmed').show();				
 			}
-			
 		}
 		function popAlertPurchaseHide(){
 			$('.pop-alert-purchase').hide();

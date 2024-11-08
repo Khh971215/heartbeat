@@ -14,7 +14,7 @@
 	
 %>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <div id="menu" class="menu">
 	<div class="wrap">
@@ -26,6 +26,7 @@
 			</div>
 			<div class="dropMenu">
 			<button type="button" class="btn-under-02" onclick="popLogoutShow();">로그아웃</button>
+			<a href="${pageContext.request.contextPath}/login">로그아웃</a>>
 		</div>
 		</div>
 		<div class="menuCnt">

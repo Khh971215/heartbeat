@@ -29,12 +29,17 @@
 		//팝업 아티스트포스트
 		function popPostArtistShow(post_id){
 			 // AJAX 요청으로 데이터를 가져옵니다.
-		    $.post("/community/getPost", { post_id: post_id }, function(data) {
+			 
+		    $.post("/community/getArtistPost", { post_id: post_id }, function(data) {
+		    	console.log(data); // 반환된 데이터 확인
 		    	// 기존의 cntArea를 비우지 않고 데이터를 추가하거나 수정합니다.
 		        const newContent = $(data).find('.cntArea').html(); // JSP에서 cntArea만 가져오기
+		        console.log(newContent); // newContent 확인
 		        $('.pop-post-artist .cntArea').html(newContent);
 		        
+
 		        
+
 		        // 팝업을 보여줍니다.
 		    }).fail(function() {
 		        console.error('Error loading post data.');
@@ -42,6 +47,7 @@
 			
 			$('.pop-post-artist').show();
 			$('.dimmed').show();
+
 		}
 		function popPostArtistHide(){
 			$('.pop-post-artist').hide();
@@ -68,7 +74,7 @@
 		//팝업 팬포스트
 		function popPostFanShow(post_id){
 			 // AJAX 요청으로 데이터를 가져옵니다.
-		    $.post("/community/getPost", { post_id: post_id }, function(data) {
+		    $.post("/community/getUserPost", { post_id: post_id }, function(data) {
 		    	// 기존의 cntArea를 비우지 않고 데이터를 추가하거나 수정합니다.
 		        const newContent = $(data).find('.cntArea').html(); // JSP에서 cntArea만 가져오기
 		        $('.pop-post-fan .cntArea').html(newContent);
@@ -102,26 +108,25 @@
 					<div class="section-artist-post">
 						<div class="artistWrap">
 							<div class="slideBx">
-							
 								<c:forEach items="${newjinsPosts}" var="newjinsVO">
 									<div class="postBx">
 										<form id="postFrm_${PostVO.post_id}" action="/community/getPost" method="post">
-								                <input type="hidden" name="post_id" value="${newjinsVO.post_id}"/>
-												<a href="javascript:void(0);" onclick="popPostArtistShow('${newjinsVO.post_id}');">
-													<div>
-														<div class="arti-profile"><img src="${pageContext.request.contextPath}/img/artist/nj_mj.jpeg" onerror=this.src="${pageContext.request.contextPath}/img/user.png" class="arti-thumb" alt="민지"></div>
-														<div class="arti-comment">
-															<div class="arti-top">
-																<span class="arti-mark"><span class="blind">artist</span></span>
-																<span class="arti-name">${newjinsVO.nickname }</span>
-															</div>
-															<div class="arti-cnt">
-																<div class="txt">${newjinsVO.content }</div>
-															</div>
+							                <input type="hidden" name="post_id" value="${newjinsVO.post_id}"/>
+											<a href="javascript:void(0);" onclick="popPostArtistShow('${newjinsVO.post_id}');">
+												<div>
+													<div class="arti-profile"><img src="${pageContext.request.contextPath}/img/artist/nj_mj.jpeg" onerror=this.src="${pageContext.request.contextPath}/img/user.png" class="arti-thumb" alt="민지"></div>
+													<div class="arti-comment">
+														<div class="arti-top">
+															<span class="arti-mark"><span class="blind">artist</span></span>
+															<span class="arti-name">${newjinsVO.nickname }</span>
+														</div>
+														<div class="arti-cnt">
+															<div class="txt">${newjinsVO.content }</div>
 														</div>
 													</div>
-												</a>
-											</form>
+												</div>
+											</a>
+										</form>
 									</div>
 								</c:forEach>
 								<div class="postBx">
